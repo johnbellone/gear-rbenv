@@ -1,12 +1,17 @@
 # coding: utf-8
 Chaindrive::Gear.define :rbenv do |gear|
   gear.version = '0.1.0'
-  gear.description = 'Setup the Ruby environment'
-  gear.long_description = 'Setup the Ruby environment'
+  gear.description = %q{A tool to manage rubies and gems.}
+  gear.license = IO.read(File.join(File.dirname(__FILE__), 'LICENSE.md'))
+  gear.summary = IO.read(File.join(File.dirname(__FILE__), 'README.md'))
   gear.homepage = 'https://github.com/chaindrive/gear-rbenv'
-  gear.maintainer = {
+  gear.contributer = {
     name: 'John Bellone',
     email: 'john.bellone.jr@gmail.com',
     github: 'johnbellone'
   }
+
+  gear.provisioner :chef_solo do |chef|
+    chef.run_list = ['recipe[rbenv]']
+  end
 end
