@@ -2,3 +2,4 @@
 source "https://rubygems.org"
 
 gem 'chaindrive'
+gem 'berkshelf'
